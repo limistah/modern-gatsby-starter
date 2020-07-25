@@ -1,0 +1,42 @@
+---
+title: "Bold Mage"
+cover: "8.jpg"
+date: "2017-01-01"
+category: "tech"
+tags:
+  - programming
+  - stuff
+  - Ice cream
+  - other
+---
+
+# Donut I love macaroon chocolate bar
+
+Oat cake marshmallow lollipop fruitcake I love jelly-o. Gummi bears cake wafer chocolate bar pie. Marshmallow pastry powder chocolate cake candy chupa chups. Jelly beans powder soufflé biscuit pie macaroon chocolate cake. Marzipan lemon drops chupa chups sweet cookie sesame snaps jelly halvah.
+
+## Ice cream chupa chups jelly beans cupcake tiramisu
+
+Ice cream chupa chups jelly beans cupcake tiramisu. Tiramisu pudding icing dragée sugar plum candy canes ice cream soufflé cookie. Cake sweet oat cake gingerbread biscuit carrot cake croissant sesame snaps. Cake jujubes ice cream wafer cheesecake tart.
+
+## I love lollipop pudding donut chocolate bar bear claw candy
+
+I love topping sweet roll. Toffee chocolate powder danish sweet roll. Icing muffin jelly tootsie roll lollipop cotton candy jelly beans caramels muffin. Chupa chups dragée I love I love muffin lemon drops sweet. Pie macaroon sesame snaps caramels cheesecake marzipan sugar plum chocolate. I love toffee gummies cookie chocolate cake cake. Brownie oat cake lollipop halvah I love croissant brownie donut. Cake macaroon ice cream liquorice dragée powder.
+
+## Gummi bears I love dragée.
+
+Cupcake pastry jelly I love macaroon. Marzipan I love tiramisu bonbon danish. Sweet roll jelly macaroon candy ice cream cake pastry jelly beans apple pie. Cheesecake I love donut brownie wafer chocolate bar. Chupa chups chocolate bear claw.
+
+```php
+    urlLinkedin.midi_manet -= namespace(backsideKilobitBezel);
+    var ddr = storage_wordart_sdram;
+    python.raw_backlink = rfid_load - 4;
+    kibibyte *= cdnThumbnailUri;
+```
+
+## Oat cake bonbon jelly beans toffee.
+
+Gummies cotton candy muffin fruitcake donut biscuit cheesecake sweet roll chocolate bar. Sweet roll sesame snaps topping macaroon muffin chocolate sugar plum fruitcake sugar plum. Tootsie roll sesame snaps macaroon. Tiramisu biscuit jelly cotton candy powder. I love I love I love icing I love chupa chups pastry. Sugar plum tootsie roll I love jelly beans cake topping pudding tootsie roll wafer. I love croissant marshmallow cookie liquorice jelly beans tiramisu sweet.
+
+## Tootsie roll sugar plum dragée pie.
+
+_Gingerbread ice cream caramels chupa chups_. Gummi bears danish bear claw chupa chups bear claw cotton candy I love. Pie I love dragée icing dragée. Dessert candy canes chocolate cake liquorice caramels sesame snaps marshmallow lollipop candy. Bonbon cotton candy marzipan cotton candy chupa chups dessert sweet tart. Liquorice jujubes pastry liquorice jujubes ~chocolate bar jelly sesame snaps~. Bear claw tart halvah macaroon carrot cake jelly-o.
