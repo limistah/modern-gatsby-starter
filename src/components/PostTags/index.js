@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import { Link } from "gatsby";
 
 function index(props) {
   const { tags } = props;
