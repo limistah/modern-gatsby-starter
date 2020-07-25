@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {},
   plugins: [
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-lodash",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -37,5 +39,17 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-plugin-nprogress",
+      options: {
+        color: "RED",
+      },
+    },
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-catch-links",
+    "gatsby-plugin-twitter",
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-offline",
   ],
 };
