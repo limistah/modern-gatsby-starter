@@ -1,12 +1,25 @@
 {
   "name": "modern-gatsby-starter",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "A modern Gatsby starter that includes Tags, Categories, Search, Comment, Pagination, RSS, Social Profiles, Embedded Tweets/Videos",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "develop": "gatsby develop",
+    "dev": "npm run develop",
+    "serve": "gatsby serve",
+    "build": "gatsby build",
+    "build:pp": "gatsby build --prefix-paths",
+    "clean": "rm -rf public && rm -rf .cache",
+    "lint:js": "eslint --ext .js,.jsx .",
+    "lint:md": "remark content/",
+    "write-good": "write-good $(glob 'content/posts/**/*.md')",
+    "format:js": "prettier '**/*.{js,jsx}' --write",
+    "format:styles": "prettier '**/*.{css,scss}' --write",
+    "build:gh": "npm run clean && npm run build:pp && gh-pages -d public"
   },
-  "keywords": [],
+  "keywords": [
+    "gatsb, blog",
+    "website"
+  ],
   "author": "",
   "license": "ISC"
 }
