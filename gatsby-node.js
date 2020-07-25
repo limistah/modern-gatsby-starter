@@ -42,7 +42,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       }
       console.log(node.frontmatter);
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
-        const date = moment(node.frontmatter.date, "DD/MM/YYYY");
+        moment(new Date(node.frontmatter.date), "DD/MM/YYYY");
         if (!date.isValid) {
           console.warn(`WARNING: Invalid date.`, node.frontmatter);
         }
