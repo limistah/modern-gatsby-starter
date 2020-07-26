@@ -1,5 +1,6 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
+import _ from "lodash";
 import Layout from "../../layout";
 import "./b16-tomorrow-dark.css";
 import "./index.css";
@@ -20,7 +21,18 @@ export default class PostTemplate extends React.Component {
         <div>
           <div>
             <h1>{post.title}</h1>
-            <div className="category">Post Category: {post.category}</div>
+            <div className="category">
+              Posted to{" "}
+              <em>
+                <Link
+                  key={post.category}
+                  style={{ textDecoration: "none" }}
+                  to={`/category/${_.kebabCase(post.category)}`}
+                >
+                  <a>{post.category}</a>
+                </Link>
+              </em>
+            </div>
             <PostTags tags={post.tags} />
             <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
           </div>
