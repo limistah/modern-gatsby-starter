@@ -40,7 +40,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug")) {
         slug = `/${_.kebabCase(node.frontmatter.slug)}`;
       }
-
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
         const date = moment(new Date(node.frontmatter.date), "DD/MM/YYYY");
         if (!date.isValid) {
