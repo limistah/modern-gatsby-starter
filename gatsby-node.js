@@ -212,6 +212,11 @@ exports.createPages = async ({ graphql, actions }) => {
             name
             email
             description
+            userLinks {
+              iconClassName
+              label
+              url
+            }
           }
         }
       }
@@ -223,7 +228,10 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/authors/${_.kebabCase(author.node.mdField)}/`,
       component: authorsListingPage,
-      context: { author: author.node.mdField },
+      context: {
+        authorMdField: author.node.mdField,
+        authorDetails: author.node,
+      },
     });
   });
 };

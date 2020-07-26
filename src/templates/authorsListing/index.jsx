@@ -5,14 +5,16 @@ import PostListing from "../../components/PostListing";
 import AuthorInfo from "../../components/AuthorInfo";
 
 export default ({ pageContext, data }) => {
-  const { author } = pageContext;
+  const { authorDetails } = pageContext;
   const postEdges = data.allMarkdownRemark.edges;
   return (
     <Layout>
-      <div className="category-container">
-        <div>Posts posted by {author}</div>
-        <AuthorInfo />
-        <PostListing postEdges={postEdges} />
+      <div>
+        <h1 style={{ textAlign: "center" }}>Author Roll</h1>
+        <div className="category-container">
+          <AuthorInfo author={authorDetails} />
+          <PostListing postEdges={postEdges} />
+        </div>
       </div>
     </Layout>
   );
@@ -20,11 +22,11 @@ export default ({ pageContext, data }) => {
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query AuthorPage($author: String) {
+  query AuthorPage($authorMdField: String) {
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [fields___date], order: DESC }
-      filter: { frontmatter: { author: { eq: $author } } }
+      filter: { frontmatter: { author: { eq: $authorMdField } } }
     ) {
       totalCount
       edges {
