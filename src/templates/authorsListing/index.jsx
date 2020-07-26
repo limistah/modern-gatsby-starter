@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../../layout";
 import PostListing from "../../components/PostListing";
+import AuthorInfo from "../../components/AuthorInfo";
 
 export default ({ pageContext, data }) => {
   const { author } = pageContext;
@@ -10,6 +11,7 @@ export default ({ pageContext, data }) => {
     <Layout>
       <div className="category-container">
         <div>Posts posted by {author}</div>
+        <AuthorInfo />
         <PostListing postEdges={postEdges} />
       </div>
     </Layout>
@@ -19,7 +21,7 @@ export default ({ pageContext, data }) => {
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query AuthorPage($author: String) {
-    allAuthorsJson(
+    allMarkdownRemark(
       limit: 1000
       sort: { fields: [fields___date], order: DESC }
       filter: { frontmatter: { author: { eq: $author } } }

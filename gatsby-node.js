@@ -82,6 +82,10 @@ exports.createPages = async ({ graphql, actions }) => {
   );
   // Template to use to render posts based on categories
   const tagsListingPage = path.resolve("./src/templates/tagsListing/index.jsx");
+  // Template to use to render posts based on categories
+  const authorsListingPage = path.resolve(
+    "./src/templates/authorsListing/index.jsx"
+  );
 
   // Get all the markdown parsed through the help of gatsby-source-filesystem and gatsby-transformer-remark
   const allMarkdownResult = await graphql(`
@@ -193,6 +197,33 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/tags/${_.kebabCase(tag)}/`,
       component: tagsListingPage,
       context: { tag },
+    });
+  });
+
+  const allAuthorsJson = await graphql(`
+    {
+      allAuthorsJson {
+        edges {
+          node {
+            id
+            avatar
+            mdField
+            location
+            name
+            email
+            description
+          }
+        }
+      }
+    }
+  `);
+
+  const authorsEdges = allAuthorsJson.data.allAuthorsJson.edges;
+  authorsEdges.forEach((author) => {
+    createPage({
+      path: `/authors/${_.kebabCase(author.node.mdField)}/`,
+      component: authorsListingPage,
+      context: { author: author.node.mdField },
     });
   });
 };

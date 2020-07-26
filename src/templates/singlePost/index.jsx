@@ -39,7 +39,7 @@ export default class PostTemplate extends React.Component {
               <Link
                 key={postNode.fields.author.name}
                 style={{ textDecoration: "none" }}
-                to={`/authors/${_.kebabCase(postNode.fields.author.name)}`}
+                to={`/authors/${_.kebabCase(post.author)}`}
               >
                 <a title={postNode.fields.author.name}>
                   <img
@@ -71,6 +71,7 @@ export const pageQuery = graphql`
         date
         category
         tags
+        author
       }
       fields {
         slug
