@@ -23,7 +23,7 @@
   "license": "MIT",
   "author": "Aleem Isiaka <aleem.isiaka@gmail.com>",
   "dependencies": {
-    "gatsby": "^2.22.15",
+    "gatsby": "^2.24.11",
     "gatsby-image": "^2.4.5",
     "gatsby-plugin-catch-links": "^2.3.3",
     "gatsby-plugin-feed": "^2.5.3",
