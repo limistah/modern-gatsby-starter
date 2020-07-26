@@ -4,12 +4,12 @@ import Layout from "../../layout";
 import PostListing from "../../components/PostListing";
 
 export default ({ pageContext, data }) => {
-  const { category } = pageContext;
+  const { tag } = pageContext;
   const postEdges = data.allMarkdownRemark.edges;
   return (
     <Layout>
-      <div className="category-container">
-        <div>Posts posted to {category}</div>
+      <div className="tag-container">
+        <div>Posts posted with {tag}</div>
         <PostListing postEdges={postEdges} />
       </div>
     </Layout>
@@ -18,11 +18,11 @@ export default ({ pageContext, data }) => {
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query CategoryPage($category: String) {
+  query TagPage($tag: String) {
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [fields___date], order: DESC }
-      filter: { frontmatter: { category: { eq: $category } } }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
       edges {

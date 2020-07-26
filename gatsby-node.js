@@ -68,6 +68,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const categoriesListing = path.resolve(
     "./src/templates/categoriesListing/index.jsx"
   );
+  // Template to use to render posts based on categories
+  const tagsListingPage = path.resolve("./src/templates/tagsListing/index.jsx");
 
   // Get all the markdown parsed through the help of gatsby-source-filesystem and gatsby-transformer-remark
   const allMarkdownResult = await graphql(`
@@ -138,12 +140,20 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const categorySet = new Set();
+  const tagSet = new Set();
 
   // Loops through all the post nodes
   postsEdges.forEach((edge, index) => {
     // Generate a list of categories
     if (edge.node.frontmatter.category) {
       categorySet.add(edge.node.frontmatter.category);
+    }
+
+    // Generate a list of tags
+    if (edge.node.frontmatter.tags) {
+      edge.node.frontmatter.tags.forEach((tag) => {
+        tagSet.add(tag);
+      });
     }
 
     // Create post pages
@@ -162,6 +172,15 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/categories/${_.kebabCase(category)}/`,
       component: categoriesListing,
       context: { category },
+    });
+  });
+
+  //  Create tag pages
+  tagSet.forEach((tag) => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag)}/`,
+      component: tagsListingPage,
+      context: { tag },
     });
   });
 };
