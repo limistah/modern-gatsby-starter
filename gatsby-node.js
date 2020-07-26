@@ -60,7 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // Template to use to render the post converted HTML
-  const postPage = path.resolve("./src/templates/singlePost/index.js");
+  const postPage = path.resolve("./src/templates/singlePost/index.jsx");
 
   // Get all the markdown parsed through the help of gatsby-source-filesystem and gatsby-transformer-remark
   const allMarkdownResult = await graphql(`

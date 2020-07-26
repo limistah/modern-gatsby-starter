@@ -20,8 +20,9 @@ export default class PostTemplate extends React.Component {
         <div>
           <div>
             <h1>{post.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+            <div className="category">Post Category: {post.category}</div>
             <PostTags tags={post.tags} />
+            <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
           </div>
         </div>
       </Layout>
