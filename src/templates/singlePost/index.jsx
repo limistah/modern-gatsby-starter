@@ -34,6 +34,23 @@ export default class PostTemplate extends React.Component {
               </em>
             </div>
             <PostTags tags={post.tags} />
+            <div className="author-container">
+              Posted by:{" "}
+              <Link
+                key={postNode.fields.author.name}
+                style={{ textDecoration: "none" }}
+                to={`/authors/${_.kebabCase(postNode.fields.author.name)}`}
+              >
+                <a title={postNode.fields.author.name}>
+                  <img
+                    className="author-avatar"
+                    src={postNode.fields.author.avatar}
+                    width="50px"
+                    height="50px"
+                  />
+                </a>
+              </Link>
+            </div>
             <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
           </div>
         </div>
@@ -58,6 +75,11 @@ export const pageQuery = graphql`
       fields {
         slug
         date
+        author {
+          name
+          location
+          avatar
+        }
       }
     }
   }

@@ -48,6 +48,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         // MarkdownRemark does not include date by default
         createNodeField({ node, name: "date", value: date.toISOString() });
       }
+
+      if (Object.prototype.hasOwnProperty.call(node.frontmatter, "author")) {
+        // Set the author data
+        const authorPath = path.resolve(
+          __dirname,
+          `authors/${node.frontmatter.author}.json`
+        );
+        const authorJson = require(authorPath);
+        // // MarkdownRemark does not include date by default
+        // console.log(authorJson);
+        createNodeField({ node, name: "author", value: authorJson });
+      }
     }
 
     createNodeField({ node, name: "slug", value: slug });

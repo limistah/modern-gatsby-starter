@@ -3,3 +3,23 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.author-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.author-container .author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+  cursor: pointer;
+  box-shadow: 1px 0px 6px;
+  transition: all 0.2s;
+}
+
+.author-container .author-avatar:hover {
+  width: 55px;
+  transform: rotate(20deg) translate(-5px);
+}
