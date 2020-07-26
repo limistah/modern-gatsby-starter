@@ -10,6 +10,14 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "authors",
+        path: `${__dirname}/authors/`,
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
