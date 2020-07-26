@@ -40,7 +40,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug")) {
         slug = `/${_.kebabCase(node.frontmatter.slug)}`;
       }
-      console.log(node.frontmatter);
+
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
         const date = moment(new Date(node.frontmatter.date), "DD/MM/YYYY");
         if (!date.isValid) {
@@ -61,6 +61,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Template to use to render the post converted HTML
   const postPage = path.resolve("./src/templates/singlePost/index.jsx");
+  // Template to use to render the post listing converted HTML
+  const listingPage = path.resolve("./src/templates/postsListing/index.jsx");
+  // Template to use to render the post listing converted HTML
+  const landingPage = path.resolve("./src/templates/landing/index.jsx");
 
   // Get all the markdown parsed through the help of gatsby-source-filesystem and gatsby-transformer-remark
   const allMarkdownResult = await graphql(`
@@ -92,6 +96,43 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Items/Details are stored inside of edges
   const postsEdges = allMarkdownResult.data.allMarkdownRemark.edges;
+
+  // Sort posts
+  postsEdges.sort((postA, postB) => {
+    const dateA = moment(new Date(postA.node.frontmatter.date), "DD/MM/YYYY");
+
+    const dateB = moment(postB.node.frontmatter.date, "DD/MM/YYYY");
+
+    if (dateA.isBefore(dateB)) return 1;
+    if (dateB.isBefore(dateA)) return -1;
+
+    return 0;
+  });
+
+  // Paging
+  const postsPerPage = 3;
+  if (postsPerPage) {
+    const pageCount = Math.ceil(postsEdges.length / postsPerPage);
+
+    Array.from({ length: pageCount }).forEach((_val, pageNum) => {
+      createPage({
+        path: pageNum === 0 ? `/` : `/${pageNum + 1}/`,
+        component: listingPage,
+        context: {
+          limit: postsPerPage,
+          skip: pageNum * postsPerPage,
+          pageCount,
+          currentPageNum: pageNum + 1,
+        },
+      });
+    });
+  } else {
+    // Load the landing page instead
+    createPage({
+      path: `/`,
+      component: landingPage,
+    });
+  }
 
   // Loops through all the post nodes
   postsEdges.forEach((edge, index) => {
