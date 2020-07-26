@@ -27,7 +27,7 @@ export default class PostTemplate extends React.Component {
                 <Link
                   key={post.category}
                   style={{ textDecoration: "none" }}
-                  to={`/category/${_.kebabCase(post.category)}`}
+                  to={`/categories/${_.kebabCase(post.category)}`}
                 >
                   <a>{post.category}</a>
                 </Link>
