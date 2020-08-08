@@ -1,5 +1,8 @@
 module.exports = {
-  siteMetadata: {},
+  siteMetadata: {
+    siteUrl: `https://www.example.com`,
+    title: `Modern Gatsby Blog Starter`,
+  },
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
